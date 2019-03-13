@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t pjho/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run pjho/docker-react npm run test -- --coverage
